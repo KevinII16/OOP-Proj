@@ -1,4 +1,4 @@
-public class Income extends Budget{
+public class Income extends Budget{ //income subclass inheriting from the budget superclass
     private String job;
     private double hourly_rate;
     private double salary;
@@ -6,7 +6,7 @@ public class Income extends Budget{
     private double weeks_per_month;
 
     public Income(String job, double hourly_rate, double weekly_hours, double weeks_per_month,String name, double total_amount, String continent){ 
-        super(name,total_amount,continent);
+        super(name,total_amount,continent); //calling the superclass constructor
         this.job = job;
         this.hourly_rate = hourly_rate;
         this.weekly_hours = weekly_hours;
@@ -36,7 +36,7 @@ public class Income extends Budget{
     public double getSalary(){
         return salary;
     }
-    public void setSalary(double salary){
+    public void setSalary(double salary){ //just regular get and set methods for all the varoables
         this.salary = salary;
     }
     public double getWeekly_hours(){
