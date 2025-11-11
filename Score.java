@@ -49,10 +49,9 @@ public class Score extends GuessingGame{
                }
            } 
        
-       } if (score == 5) {
-           JOptionPane.showMessageDialog(null,"Good job");
-       }
+       } 
         
     }
     
 }
+
