@@ -4,7 +4,7 @@
  */
 package quizgame;
 
-/**
+/*
  *
  * @author RichardBadea
  */
