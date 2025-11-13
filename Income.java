@@ -3,23 +3,26 @@ public class Income extends Budget{ //income subclass inheriting from the budget
     private double hourly_rate;
     private double salary;
     private double weekly_hours;
-    private double weeks_per_month;
+    //private double weeks_per_month;
+    private double monthly_income;
 
-    public Income(String job, double hourly_rate, double weekly_hours, double weeks_per_month,String name, double total_amount, String continent){ 
+    public Income(String job, double hourly_rate, double weekly_hours,String name, double total_amount, String continent,double monthly_income, double salary){ 
         super(name,total_amount,continent); //calling the superclass constructor
         this.job = job;
+        this.salary = salary;
         this.hourly_rate = hourly_rate;
         this.weekly_hours = weekly_hours;
-        this.weeks_per_month = weeks_per_month;
-        this.salary = hourly_rate * weekly_hours * weeks_per_month;
+        //this.weeks_per_month = weeks_per_month;
+        this.monthly_income = hourly_rate * weekly_hours;
     }
     public Income(){
         super();
         this.job = "";
         this.hourly_rate = 0.0;
         this.weekly_hours = 0.0;
-        this.weeks_per_month = 0.0;
+       // this.weeks_per_month = 0.0;
         this.salary = 0.0;
+        this.monthly_income = 0.0;
     }
     public String getJob(){
         return job;
@@ -45,11 +48,21 @@ public class Income extends Budget{ //income subclass inheriting from the budget
     public void setWeekly_hours(double weekly_hours){
         this.weekly_hours = weekly_hours;
     }
-    public double getWeeks_per_month(){
-        return weeks_per_month;
+    public double getMonthly_income(){
+        return monthly_income;
     }
-    public void setWeeks_per_month(double weeks_per_month){
-        this.weeks_per_month = weeks_per_month;
+    public void setMonthly_income(double monthly_income){
+        this.monthly_income = monthly_income;
+    }
+   // public double getWeeks_per_month(){
+      //  return weeks_per_month;
+  //  }
+  //  public void setWeeks_per_month(double weeks_per_month){
+  //      this.weeks_per_month = weeks_per_month;
+  //  }
+    public void calculateSalary(){
+        monthly_income = hourly_rate * weekly_hours;
+
     }
 }
 
