@@ -9,6 +9,8 @@ package sustainableeducationapp;
 * Student number: 24326776
 * Course: BSHCIFSC2
  */
+
+// parent class to store the user income
 public class SustainableEducationApp {
 
     protected double userIncome;

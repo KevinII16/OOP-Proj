@@ -5,13 +5,20 @@
 package GUI;
 
 import model.IncomeComparator;
-
+import java.util.ArrayList;
 /*
 * @author Rostyslav Kuznets
 * Student number: 24326776
 * Course: BSHCIFSC2
  */
+
+
+//GUI class where user enters their income, picks the continent and gets a comparison
+
 public class EducationGUI extends javax.swing.JFrame {
+    
+    //ArrayList to store all comparison results
+    private ArrayList<String> history = new ArrayList<>();
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EducationGUI.class.getName());
 
@@ -41,6 +48,7 @@ public class EducationGUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,6 +100,13 @@ public class EducationGUI extends javax.swing.JFrame {
 
         jLabel4.setText("Output:");
 
+        jButton3.setText("Show History");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,11 +123,13 @@ public class EducationGUI extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
+                        .addGap(176, 176, 176)
+                        .addComponent(jButton3)
+                        .addGap(12, 12, 12)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -140,7 +157,8 @@ public class EducationGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addGap(18, 18, 18))
         );
 
@@ -161,6 +179,7 @@ public class EducationGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    // Compare button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             double monthlyIncome = Double.parseDouble(jTextField1.getText());
@@ -195,20 +214,41 @@ public class EducationGUI extends javax.swing.JFrame {
                     fact = "Australia promotes balanced work-life culture.";
                     break;
             }
-
+               //creates object to compare incomes
             IncomeComparator comp = new IncomeComparator(continent, avg, fact, monthlyIncome);
+            
             jTextArea1.setText(comp.compareIncome() + "\n" + comp.similarityComment(monthlyIncome * 12));
-
-        } catch (NumberFormatException ex) {
+            String result = comp.compareIncome() + "\n" + comp.similarityComment(monthlyIncome * 12);
+            
+            //saving the history of comparisons
+            history.add(result);
+        } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid number for income.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //clear button
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jTextField1.setText("");
         jComboBox1.setSelectedIndex(0);
         jTextArea1.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    
+    //history button(shows comparisons)
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (history.isEmpty()) {
+            jTextArea1.setText("No previous comparisons yet.");
+            return;
+        }
+
+        String output = "";
+        for (String s : history) {
+            output += s + "\n---------------------------------\n";
+        }
+
+        jTextArea1.setText(output);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,6 +278,7 @@ public class EducationGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
