@@ -195,8 +195,7 @@ if ("Salary".equals(payType)) {
 
     // Check empty
     if (salaryText.equals("")) {
-        JOptionPane.showMessageDialog(this,
-                "Please enter a salary amount.");
+        JOptionPane.showMessageDialog(this,"Please enter a salary amount.");
         return;
     }
 
@@ -218,8 +217,7 @@ if ("Salary".equals(payType)) {
     double salaryVal = Double.parseDouble(salaryText);
 
     // Create the Income object
-    incomeObj = new Income("Salary Job", 0, 0, 0,
-                           "User", salaryVal, "Europe");
+    incomeObj = new Income("Salary Job", 0, 0, 0,"User", salaryVal, "Europe");
     incomeObj.setMonthlySalary(salaryVal);
 
     finalSalary = incomeObj.getSalary();
@@ -239,8 +237,7 @@ String hoursText  = jTextField3.getText().trim();
 
 // Check empty
 if (hourlyText.equals("") || hoursText.equals("")) {
-    JOptionPane.showMessageDialog(this,
-            "Please enter hourly pay and hours worked.");
+    JOptionPane.showMessageDialog(this, "Please enter hourly pay and hours worked.");
     return;
 }
 
@@ -253,8 +250,7 @@ for (int i = 0; i < hourlyText.length(); i++) {
     }
 }
 if (!validHourly) {
-    JOptionPane.showMessageDialog(this,
-            "Hourly pay must be a number.");
+    JOptionPane.showMessageDialog(this, "Hourly pay must be a number.");
     return;
 }
 
@@ -267,8 +263,7 @@ for (int i = 0; i < hoursText.length(); i++) {
     }
 }
 if (!validHours) {
-    JOptionPane.showMessageDialog(this,
-            "Hours worked must be a number.");
+    JOptionPane.showMessageDialog(this,"Hours worked must be a number.");
     return;
 }
 
@@ -276,8 +271,7 @@ double hourlyRate = Double.parseDouble(hourlyText);
 double weeklyHours = Double.parseDouble(hoursText);
 double weeks = 4; // simple assumption
 
-incomeObj = new Income("Hourly Job", hourlyRate, weeklyHours, weeks,
-                       "User", 0, "Europe");
+incomeObj = new Income("Hourly Job", hourlyRate, weeklyHours, weeks,  "User", 0, "Europe");
 
 finalSalary = incomeObj.computeIncome();
 
