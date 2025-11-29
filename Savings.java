@@ -12,14 +12,14 @@ package salary;
 
 
 
-public class Savings extends Budget {
+public class Savings extends Budget{
 
     private double goal;             // how much they want to save
     private double existingSavings;  // how much they already have
     private int months;              // number of months
     private double[] monthlySaving;  // saving plan array
 
-    public Savings(double goal, double existingSavings, int months, String name, double total_amount, String continent) {
+    public Savings(double goal, double existingSavings, int months,String name, double total_amount, String continent){
         super(name, total_amount, continent);
         this.goal = goal;
         this.existingSavings = existingSavings;
@@ -35,27 +35,27 @@ public class Savings extends Budget {
         this.monthlySaving = null;
     }
 
-    public double getGoal() {
+    public double getGoal(){
         return goal;
     }
 
-    public double getExistingSavings() {
+    public double getExistingSavings(){
         return existingSavings;
     }
 
-    public int getMonths() {
+    public int getMonths(){
         return months;
     }
 
-    public double[] getMonthlySaving() {
+    public double[] getMonthlySaving(){
         return monthlySaving;
     }
 
-    // Very simple calculation
-    public double calculateMonthlyAmount() {
+    // Calc
+    public double calculateMonthlyAmount(){
         double remaining = goal - existingSavings;
 
-        if (months > 0) {
+        if (months > 0){
             return remaining / months;
         }
 
@@ -63,12 +63,11 @@ public class Savings extends Budget {
     }
 
     // Fill the array
-    public void fillMonthlySavingArray() {
+    public void fillMonthlySavingArray(){
         double monthlyAmount = calculateMonthlyAmount();
 
-        for (int i = 0; i < months; i++) {
+        for (int i = 0; i < months; i++){
             monthlySaving[i] = monthlyAmount;
         }
     }
 }
-
