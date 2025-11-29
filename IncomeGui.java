@@ -12,17 +12,17 @@ package salary;
  * @author kevinalabi
  */
 import javax.swing.JOptionPane;
-public class IncomeGui extends javax.swing.JFrame {
+public class IncomeGui extends javax.swing.JFrame{
     private Income incomeObj;
     private double finalSalary = 0.0;
   
 
 
     
-    private void updateFieldsForPayType() {
+    private void updateFieldsForPayType(){
     String payType = (String) PayTypeCombo.getSelectedItem();
 
-    if ("Salary".equals(payType)) {
+    if ("Salary".equals(payType)){
         jTextField2.setText("");
         jTextField3.setText("");
 
@@ -44,7 +44,7 @@ public class IncomeGui extends javax.swing.JFrame {
     /**
      * Creates new form IncomeGui
      */
-    public IncomeGui() {
+    public IncomeGui(){
         initComponents();
         updateFieldsForPayType();
     }
@@ -58,7 +58,7 @@ public class IncomeGui extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents() {
+    private void initComponents(){
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -176,25 +176,25 @@ public class IncomeGui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt){                                            
         // TODO add your handling code here:
     }                                           
 
-    private void PayTypeComboActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void PayTypeComboActionPerformed(java.awt.event.ActionEvent evt){                                             
         updateFieldsForPayType();
         // TODO add your handling code here:
     }                                            
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt){                                         
         String payType = (String) PayTypeCombo.getSelectedItem();
 
 // ===== SALARY MODE =====
-if ("Salary".equals(payType)) {
+if ("Salary".equals(payType)){
 
     String salaryText = jTextField4.getText().trim();
 
     // Check empty
-    if (salaryText.equals("")) {
+    if (salaryText.equals("")){
         JOptionPane.showMessageDialog(this,"Please enter a salary amount.");
         return;
     }
@@ -202,15 +202,14 @@ if ("Salary".equals(payType)) {
     // Check numeric
     boolean valid = true;
     for (int i = 0; i < salaryText.length(); i++) {
-        if (!Character.isDigit(salaryText.charAt(i)) && salaryText.charAt(i) != '.') {
+        if (!Character.isDigit(salaryText.charAt(i)) && salaryText.charAt(i) != '.'){
             valid = false;
             break;
         }
     }
 
     if (!valid) {
-        JOptionPane.showMessageDialog(this,
-                "Salary must be a number.");
+        JOptionPane.showMessageDialog(this,"Salary must be a number.");
         return;
     }
 
@@ -222,15 +221,14 @@ if ("Salary".equals(payType)) {
 
     finalSalary = incomeObj.getSalary();
 
-    JOptionPane.showMessageDialog(this,
-            "Income saved: " + finalSalary);
+    JOptionPane.showMessageDialog(this,"Income saved: " + finalSalary);
 
     return;
 }
 
 
 
-// ===== HOURLY MODE =====
+//  Hourly
 
 String hourlyText = jTextField2.getText().trim();
 String hoursText  = jTextField3.getText().trim();
