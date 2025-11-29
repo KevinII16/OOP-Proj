@@ -178,8 +178,7 @@ public class ExpensesGUI extends javax.swing.JFrame {
     // Validate numeric
     if (!isNumeric(rentText) || !isNumeric(foodText) ||
         !isNumeric(utilitiesText) || !isNumeric(miscText)) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "All expenses must be numbers.");
+        javax.swing.JOptionPane.showMessageDialog(this,"All expenses must be numbers.");
         return;
     }
 
@@ -190,8 +189,7 @@ public class ExpensesGUI extends javax.swing.JFrame {
     double misc = Double.parseDouble(miscText);
 
     // Create Expenses object and compute total
-    expensesObj = new Expenses(rent, food, utilities, misc,
-                               "User", 0, "Europe");
+    expensesObj = new Expenses(rent, food, utilities, misc, "User", 0, "Europe");
 
     totalExpenses = expensesObj.computeExpenses();
 
