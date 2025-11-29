@@ -188,7 +188,7 @@ public class IncomeGui extends javax.swing.JFrame{
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt){                                         
         String payType = (String) PayTypeCombo.getSelectedItem();
 
-// ===== SALARY MODE =====
+// Salary
 if ("Salary".equals(payType)){
 
     String salaryText = jTextField4.getText().trim();
