@@ -10,14 +10,14 @@ package salary;
  */
 
 
-public class Expenses extends Budget {
+public class Expenses extends Budget{
 
     private double rent;
     private double food;
     private double utilities;
     private double miscellaneous;
 
-    public Expenses(double rent, double food, double utilities, double miscellaneous, String name, double total_amount, String continent) {
+    public Expenses(double rent, double food, double utilities, double miscellaneous, String name, double total_amount, String continent){
         super(name, total_amount, continent);
         this.rent = rent;
         this.food = food;
@@ -25,28 +25,49 @@ public class Expenses extends Budget {
         this.miscellaneous = miscellaneous;
     }
 
-    public Expenses() {
+    public Expenses(){
         super();
         rent = 0.0;
         food = 0.0;
         utilities = 0.0;
         miscellaneous = 0.0;
     }
+// getters and setters
+    public double getRent(){
+        return rent;
+    }
 
-    public double getRent() { return rent; }
-    public void setRent(double rent) { this.rent = rent; }
+    public void setRent(double rent){
+        this.rent = rent;
+    }
 
-    public double getFood() { return food; }
-    public void setFood(double food) { this.food = food; }
+    public double getFood(){
+        return food;
+    }
 
-    public double getUtilities() { return utilities; }
-    public void setUtilities(double utilities) { this.utilities = utilities; }
+    public void setFood(double food){
+        this.food = food;
+    }
 
-    public double getMiscellaneous() { return miscellaneous; }
-    public void setMiscellaneous(double miscellaneous) { this.miscellaneous = miscellaneous; }
+    public double getUtilities(){
+        return utilities;
+    }
+
+    public void setUtilities(double utilities){
+        this.utilities = utilities;
+    }   
+
+    public double getMiscellaneous(){
+        return miscellaneous;
+    }
+
+
+    public void setMiscellaneous(double miscellaneous){
+        this.miscellaneous = miscellaneous;
+    }
 
     // compute
-    public double computeExpenses() {
+    public double computeExpenses(){
         return rent + food + utilities + miscellaneous;
     }
 }
