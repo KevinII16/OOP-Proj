@@ -1,52 +1,74 @@
-public class Savings extends Budget { // Savings subclass inheriting from the Budget superclass
-    private double savings;
-    private double [] monthly_saving;
-    private double savings_account;
-    private int months;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package salary;
 
-    public Savings(double [] monthly_saving, double savings_account, int months, String name, double total_amount, String continent,double savings){
-        super(name,total_amount,continent); //calling the superclass constructor
-        this.monthly_saving = monthly_saving;
-        this.savings_account = savings_account;
+
+/**
+ *
+ * @author kevinalabi
+ */
+
+
+
+public class Savings extends Budget {
+
+    private double goal;             // how much they want to save
+    private double existingSavings;  // how much they already have
+    private int months;              // number of months
+    private double[] monthlySaving;  // saving plan array
+
+    public Savings(double goal, double existingSavings, int months, String name, double total_amount, String continent) {
+        super(name, total_amount, continent);
+        this.goal = goal;
+        this.existingSavings = existingSavings;
         this.months = months;
-        this.savings = savings;
+        this.monthlySaving = new double[months];  // create the array
     }
 
-    public Savings(){
+    public Savings() {
         super();
-        this.monthly_saving = new double[12]; // assuming 12 months of savings
-        this.savings_account = 0.0;
+        this.goal = 0;
+        this.existingSavings = 0;
         this.months = 0;
-        this.savings = 0.0;
+        this.monthlySaving = null;
     }
 
-    public double[] getMonthlySaving(){
-        return monthly_saving;
+    public double getGoal() {
+        return goal;
     }
 
-    public void setMonthlySaving(double[] monthly_saving){ // regular get and set methods for all the variables
-        this.monthly_saving = monthly_saving;   
+    public double getExistingSavings() {
+        return existingSavings;
     }
 
-    public double getSavingsAccount(){
-        return savings_account;
-    }
-
-    public void setSavingsAccount(double savings_account){
-        this.savings_account = savings_account;
-    }
-
-    public int getMonths(){
+    public int getMonths() {
         return months;
     }
 
-    public void setMonths(int months){
-        this.months = months;
+    public double[] getMonthlySaving() {
+        return monthlySaving;
     }
-    public double getSavings(){
-        return savings;
+
+    // Very simple calculation
+    public double calculateMonthlyAmount() {
+        double remaining = goal - existingSavings;
+
+        if (months > 0) {
+            return remaining / months;
+        }
+
+        return 0;
     }
-    public void setSavings(double savings){
-        this.savings = savings;
+
+    // Fill the array
+    public void fillMonthlySavingArray() {
+        double monthlyAmount = calculateMonthlyAmount();
+
+        for (int i = 0; i < months; i++) {
+            monthlySaving[i] = monthlyAmount;
+        }
     }
 }
+
