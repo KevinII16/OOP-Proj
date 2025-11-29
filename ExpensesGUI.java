@@ -8,7 +8,7 @@ package salary;
  *
  * @author kevinalabi
  */
-public class ExpensesGUI extends javax.swing.JFrame {
+public class ExpensesGUI extends javax.swing.JFrame{
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ExpensesGUI.class.getName());
     private Expenses expensesObj;      
@@ -16,18 +16,18 @@ public class ExpensesGUI extends javax.swing.JFrame {
     /**
      * Creates new form ExpensesGUI
      */
-    public ExpensesGUI() {
+    public ExpensesGUI(){
         initComponents();
     }
     
-    private boolean isNumeric(String text) {
-    if (text == null || text.trim().equals("")) {
+    private boolean isNumeric(String text){
+    if (text == null || text.trim().equals("")){
         return false;
     }
     text = text.trim();
-    for (int i = 0; i < text.length(); i++) {
+    for (int i = 0; i < text.length(); i++){
         char c = text.charAt(i);
-        if (!Character.isDigit(c) && c != '.') {
+        if (!Character.isDigit(c) && c != '.'){
             return false;
         }
     }
@@ -41,7 +41,7 @@ public class ExpensesGUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents() {
+    private void initComponents(){
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -66,22 +66,22 @@ public class ExpensesGUI extends javax.swing.JFrame {
         jLabel4.setText("How much do you spend on miscellaneous");
 
         jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
                 jButton1ActionPerformed(evt);
             }
         });
 
         jButton2.setText("Save");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
                 jButton2ActionPerformed(evt);
             }
         });
 
         jButton3.setText("Next");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton3.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
                 jButton3ActionPerformed(evt);
             }
         });
@@ -150,7 +150,7 @@ public class ExpensesGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt){                                         
     SavingGUI saving = new SavingGUI();
     saving.setLocationRelativeTo(this); // center it
     saving.setVisible(true);
@@ -159,7 +159,7 @@ public class ExpensesGUI extends javax.swing.JFrame {
     this.dispose();        // TODO add your handling code here:
     }                                        
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt){                                         
         // TODO add your handling code here:
             // Read text from boxes
     String rentText = jTextField1.getText().trim();
@@ -170,8 +170,7 @@ public class ExpensesGUI extends javax.swing.JFrame {
     // Check empty fields
     if (rentText.equals("") || foodText.equals("") ||
         utilitiesText.equals("") || miscText.equals("")) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "Please fill in ALL expense fields.");
+        javax.swing.JOptionPane.showMessageDialog(this,"Please fill in ALL expense fields.");
         return;
     }
 
@@ -194,8 +193,7 @@ public class ExpensesGUI extends javax.swing.JFrame {
     totalExpenses = expensesObj.computeExpenses();
 
     // Show confirmation
-    javax.swing.JOptionPane.showMessageDialog(this,
-            "Total monthly expenses: €" + String.format("%.2f", totalExpenses));
+    javax.swing.JOptionPane.showMessageDialog(this,"Total monthly expenses: €" + String.format("%.2f", totalExpenses));
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
