@@ -251,7 +251,7 @@ for (int i = 0; i < plan.length; i++) {
     System.out.println("Month " + (i + 1) + ": " + plan[i]);
 }
 
-// Build message
+
 String message = "Monthly Saving Plan:\n\n";
 
 for (int i = 0; i < plan.length; i++) {
